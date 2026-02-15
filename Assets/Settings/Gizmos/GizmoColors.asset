@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb72f6373d3258846a1cb4c572458cc5, type: 3}
+  m_Name: GizmoColors
+  m_EditorClassIdentifier: 
+  chasingActiveColor: {r: 0.30244982, g: 1, b: 0.1745283, a: 1}
+  chasingInactiveColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
+  attackActiveColor: {r: 1, g: 0, b: 0, a: 1}
+  attackInactiveColor: {r: 0.6037736, g: 0.4756141, b: 0.4756141, a: 1}
