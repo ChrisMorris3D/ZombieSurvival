@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 990695037966595092}
   - component: {fileID: 2843557095867268196}
   - component: {fileID: 3368096726663933764}
+  - component: {fileID: 1576356976115755901}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -175,6 +176,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1576356976115755901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918207720472598903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594a12beb894aa747b90e172045e5f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CrispyCube.EnemyAnimationStateController
+  enemy: {fileID: 2843557095867268196}
+  animator: {fileID: 8068863230221073939}
+  speedParameter: MoveSpeed
+  normalizeToZeroOne: 1
+  maxSpeedForBlend: 2
+  parameterDampTime: 0.1
+  movementThreshold: 0.02
 --- !u!1 &3150966131666106052
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,7 +1227,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 33554ed8e818e68478776c8cc925b0f6, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0

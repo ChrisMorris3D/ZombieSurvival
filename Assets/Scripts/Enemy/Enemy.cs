@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEditor;
-using UnityEngine.UI;
 using System.Collections;
 
 namespace CrispyCube
@@ -37,10 +36,15 @@ namespace CrispyCube
         bool attacking;
         bool chasing;
 
-        float dynamicSpeed;
-        float dynamicAttackDamage;
+        float currentSpeed;
+        float currentAttackDamage;
 
         Transform playerTransform;
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+        public float CurrentSpeed => currentSpeed;
+        public float CurrentAttackDamage => currentAttackDamage;
 
         // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -55,8 +59,8 @@ namespace CrispyCube
 
         void InitializeDynamicStats()
         {
-            dynamicSpeed = SpeedConstant.Value;
-            dynamicAttackDamage = AttackDamageConstant.Value;
+            currentSpeed = SpeedConstant.Value;
+            currentAttackDamage = AttackDamageConstant.Value;
         }
 
         void InitializeColliders()
@@ -100,6 +104,11 @@ namespace CrispyCube
             }
         }
 
+        public void SetDynamicSpeed(float newSpeed)
+        {
+            currentSpeed = Mathf.Max(0f, newSpeed);
+        }
+
         void MoveTowardPlayer()
         {
             Vector3 targetPosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
@@ -109,7 +118,7 @@ namespace CrispyCube
             if (distance > AttackRadius.Value)
             {
                 transform.LookAt(targetPosition);
-                transform.position += transform.forward * dynamicSpeed * Time.deltaTime;
+                transform.position += transform.forward * currentSpeed * Time.deltaTime;
             }
             else
             {
