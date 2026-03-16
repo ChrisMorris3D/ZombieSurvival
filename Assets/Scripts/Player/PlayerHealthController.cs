@@ -26,9 +26,9 @@ namespace CrispyCube
             PlayerHealth.Value -= damage;
         }
 
-         void OnTriggerEnter(Collider other)
+        void OnTriggerEnter(Collider other)
         {
-            Enemy enemy = other.gameObject.GetComponentInParent<Enemy>();
+            EnemyBase enemy = other.gameObject.GetComponentInParent<EnemyBase>();
             if (enemy != null)
             {
                 if (other.gameObject.tag == "AttackTrigger")
@@ -36,6 +36,7 @@ namespace CrispyCube
                     ReceiveDamage(enemy);
                     enemy.Attack();
                 }
+
                 if (other.gameObject.tag == "ActivationTrigger")
                 {
                     enemy.ToggleChasing(true);
@@ -43,20 +44,20 @@ namespace CrispyCube
             }
         }
 
-         void OnTriggerExit(Collider other)
+        void OnTriggerExit(Collider other)
         {
-            Enemy enemy = other.gameObject.GetComponentInParent<Enemy>();
+            EnemyBase enemy = other.gameObject.GetComponentInParent<EnemyBase>();
             if (enemy != null && other.gameObject.tag == "ActivationTrigger")
             {
                 enemy.ToggleChasing(false);
-            } 
+            }
         }
 
-        private void ReceiveDamage(Enemy enemy)
+        private void ReceiveDamage(EnemyBase enemy)
         {
             if (enemy != null)
             {
-                PlayerHealth.ApplyChange(-enemy.AttackDamageConstant.Value);
+                PlayerHealth.ApplyChange(-enemy.CurrentAttackDamage);
                 DamageEvent.Invoke();
             }
 

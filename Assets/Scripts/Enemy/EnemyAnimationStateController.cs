@@ -6,7 +6,7 @@ namespace CrispyCube
     public class EnemyAnimationStateController : MonoBehaviour
     {
         [Header("References")]
-        [SerializeField] Enemy enemy;
+        [SerializeField] EnemyBase enemy;
         [SerializeField] Animator animator;
 
         [Header("Blend Tree")]
@@ -30,7 +30,7 @@ namespace CrispyCube
 
         void Reset()
         {
-            enemy = GetComponent<Enemy>();
+            enemy = GetComponent<EnemyBase>();
             animator = GetComponentInChildren<Animator>();
         }
 
@@ -38,7 +38,7 @@ namespace CrispyCube
         {
             if (enemy == null)
             {
-                enemy = GetComponent<Enemy>();
+                enemy = GetComponent<EnemyBase>();
             }
 
             if (animator == null)
