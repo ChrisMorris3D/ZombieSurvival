@@ -6,9 +6,10 @@ namespace CrispyCube
     public class EnemySpawner : MonoBehaviour
     {
         [Header("REFERENCES")]
-        [SerializeField] GameObject enemyPrefab;
+        [SerializeField] EnemyPrefabList enemyPrefabList;
         [SerializeField] Transform playerTarget;
         [SerializeField] Transform spawnParent;
+        [SerializeField] RoundTimer roundTimer;
 
         [Header("SPAWN COUNT")]
         [SerializeField] int minEnemiesPerWave = 1;
@@ -26,11 +27,37 @@ namespace CrispyCube
 
         Coroutine spawnLoopRoutine;
 
+        void Awake()
+        {
+            if (roundTimer == null)
+            {
+                roundTimer = FindAnyObjectByType<RoundTimer>();
+            }
+        }
+
+        void OnEnable()
+        {
+            if (roundTimer != null)
+            {
+                roundTimer.RoundEnded += HandleRoundEnded;
+            }
+        }
+
+        void OnDisable()
+        {
+            if (roundTimer != null)
+            {
+                roundTimer.RoundEnded -= HandleRoundEnded;
+            }
+
+            StopSpawning();
+        }
+
         void Start()
         {
             if (playerTarget == null)
             {
-                PlayerMovement player = FindAnyObjectByType<PlayerMovement>();
+                ThirdPersonPlayerMovement player = FindAnyObjectByType<ThirdPersonPlayerMovement>();
                 if (player != null)
                 {
                     playerTarget = player.transform;
@@ -45,7 +72,7 @@ namespace CrispyCube
 
         public void BeginSpawning()
         {
-            if (spawnLoopRoutine != null)
+            if (spawnLoopRoutine != null || (roundTimer != null && roundTimer.IsRoundOver))
             {
                 return;
             }
@@ -66,7 +93,8 @@ namespace CrispyCube
 
         public void SpawnWave()
         {
-            if (enemyPrefab == null || playerTarget == null)
+            if (enemyPrefabList == null || playerTarget == null ||
+                (roundTimer != null && roundTimer.IsRoundOver))
             {
                 return;
             }
@@ -74,6 +102,11 @@ namespace CrispyCube
             int enemiesToSpawn = Random.Range(minEnemiesPerWave, maxEnemiesPerWave + 1);
             for (int i = 0; i < enemiesToSpawn; i++)
             {
+                if (!enemyPrefabList.TryGetRandomPrefab(out GameObject enemyPrefab))
+                {
+                    return;
+                }
+
                 Vector3 spawnPosition = GetSpawnPosition();
                 Instantiate(enemyPrefab, spawnPosition, Quaternion.identity, spawnParent);
             }
@@ -81,15 +114,28 @@ namespace CrispyCube
 
         IEnumerator SpawnLoop()
         {
-            while (true)
+            while (roundTimer == null || !roundTimer.IsRoundOver)
             {
-                if (enemyPrefab != null && playerTarget != null)
+                if (enemyPrefabList != null && playerTarget != null)
                 {
                     SpawnWave();
                 }
 
                 float waitTime = Random.Range(minSecondsBetweenWaves, maxSecondsBetweenWaves);
                 yield return new WaitForSeconds(waitTime);
+            }
+
+            spawnLoopRoutine = null;
+        }
+
+        void HandleRoundEnded()
+        {
+            StopSpawning();
+
+            EnemyHealthController[] enemies = FindObjectsByType<EnemyHealthController>(FindObjectsSortMode.None);
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                enemies[i].Kill();
             }
         }
 

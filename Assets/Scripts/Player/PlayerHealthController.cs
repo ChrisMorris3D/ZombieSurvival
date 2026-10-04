@@ -33,8 +33,12 @@ namespace CrispyCube
             {
                 if (other.gameObject.tag == "AttackTrigger")
                 {
-                    ReceiveDamage(enemy);
-                    enemy.Attack();
+                    enemy.ToggleAttackRange(true);
+                    if (enemy.CanAttack)
+                    {
+                        ReceiveDamage(enemy);
+                        enemy.Attack();
+                    }
                 }
 
                 if (other.gameObject.tag == "ActivationTrigger")
@@ -47,9 +51,19 @@ namespace CrispyCube
         void OnTriggerExit(Collider other)
         {
             EnemyBase enemy = other.gameObject.GetComponentInParent<EnemyBase>();
-            if (enemy != null && other.gameObject.tag == "ActivationTrigger")
+            if (enemy == null)
+            {
+                return;
+            }
+
+            if (other.gameObject.tag == "ActivationTrigger")
             {
                 enemy.ToggleChasing(false);
+            }
+
+            if (other.gameObject.tag == "AttackTrigger")
+            {
+                enemy.ToggleAttackRange(false);
             }
         }
 
