@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &-6652698569412866375
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: john_ruok_gun_tikka_t3_battue_308_001_Swpph_Mono_Shot_Weak_{-6652698569412866375}
+  m_AudioClip: {fileID: 8300000, guid: 32ba493f22c4dab4db7e08f6a059dfbd, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-5625695844642204595
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: john_ruok_gun_tikka_t3_battue_308_003_Swpph_Mono_Shot_Weak_{-5625695844642204595}
+  m_AudioClip: {fileID: 8300000, guid: 9f0645d815727c14e867210802f362b6, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &1474430774865270668
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: john_ruok_gun_tikka_t3_battue_308_002_Swpph_Mono_Shot_Weak_{1474430774865270668}
+  m_AudioClip: {fileID: 8300000, guid: bff6d196ffc476047befb7a879866bca, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MachineGun
+  m_Volume: 0
+  m_Pitch: 0
+  m_AutomaticTriggerTime: 0
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: -1.9999981, y: 3.000002}
+  m_PitchRandomizationRange: {x: -67.49997, y: 97.49994}
+  m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: -6652698569412866375}
+  - {fileID: 1474430774865270668}
+  - {fileID: -5625695844642204595}
+  m_AvoidRepeatingLast: 0
+  m_PlaybackMode: 1
+  m_TriggerMode: 0
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 2
+  m_VolumeRandomizationEnabled: 1
+  m_PitchRandomizationEnabled: 1
+  m_AutomaticTriggerTimeRandomizationEnabled: 0
+  m_LoopCountRandomizationEnabled: 0
