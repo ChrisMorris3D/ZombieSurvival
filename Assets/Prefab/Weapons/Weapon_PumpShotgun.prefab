@@ -9354,7 +9354,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6659030150692098403}
-  - component: {fileID: 1423229538839839306}
+  - component: {fileID: 4710232817110786329}
+  - component: {fileID: 8770019954483559190}
   - component: {fileID: 1155900469197143169}
   - component: {fileID: 3408687685251976864}
   - component: {fileID: 96179818833608790}
@@ -9386,7 +9387,7 @@ Transform:
   - {fileID: 1871942569072338177}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1423229538839839306
+--- !u!114 &4710232817110786329
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9395,20 +9396,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 3893312888331455654}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dc7da179cbf4dc9821f13d665f810d0, type: 3}
+  m_Script: {fileID: 11500000, guid: c2536191f7bb4abfbed0b44458e47db7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MachineGun
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponController
+  weaponData: {fileID: 11400000, guid: 686a90371772f4d47a52ba4c413596b3, type: 2}
   roundTimer: {fileID: 11400000, guid: ec56fbdfe539eea459fd8700769b16aa, type: 2}
-  shootEffects:
-  - {fileID: 1969203911950318001}
+  shotOrigin: {fileID: 0}
+  shootEffects: []
   hitEffectPrefab: {fileID: 0}
-  shotAudioSource: {fileID: 2114765577838653057}
-  range: 100
-  shotsPerSecond: 6
-  damage: 1
-  hitMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
+  shotAudioSource: {fileID: 0}
+--- !u!114 &8770019954483559190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3893312888331455654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b54459579e42aab88d68ccb64cbca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerWeaponInput
 --- !u!33 &1155900469197143169
 MeshFilter:
   m_ObjectHideFlags: 0

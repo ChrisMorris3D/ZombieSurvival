@@ -9354,8 +9354,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6659030150692098403}
+  - component: {fileID: -2587622825069722656}
+  - component: {fileID: 8770019954483559190}
   - component: {fileID: 2114765577838653057}
-  - component: {fileID: 6332204696484131158}
   m_Layer: 10
   m_Name: Weapon_Pistol
   m_TagString: Untagged
@@ -9380,6 +9381,36 @@ Transform:
   - {fileID: 5485812687447292291}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2587622825069722656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3893312888331455654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2536191f7bb4abfbed0b44458e47db7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponController
+  weaponData: {fileID: 11400000, guid: c21069db48ec53f43b795efd9b7112eb, type: 2}
+  roundTimer: {fileID: 11400000, guid: ec56fbdfe539eea459fd8700769b16aa, type: 2}
+  shotOrigin: {fileID: 0}
+  shootEffects: []
+  hitEffectPrefab: {fileID: 0}
+  shotAudioSource: {fileID: 0}
+--- !u!114 &8770019954483559190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3893312888331455654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b54459579e42aab88d68ccb64cbca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerWeaponInput
 --- !u!82 &2114765577838653057
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9479,30 +9510,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6332204696484131158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3893312888331455654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c14958a1d7c54ceda7573c4ea34ea661, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Pistol
-  roundTimer: {fileID: 11400000, guid: ec56fbdfe539eea459fd8700769b16aa, type: 2}
-  shootEffects:
-  - {fileID: 1969203911950318001}
-  hitEffectPrefab: {fileID: 4771007979880491222, guid: 4011e98ad166a054eba33d59b5d530d0,
-    type: 3}
-  shotAudioSource: {fileID: 2114765577838653057}
-  range: 100
-  shotsPerSecond: 10
-  damage: 1
-  hitMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!1001 &5452518773290245736
 PrefabInstance:
   m_ObjectHideFlags: 0

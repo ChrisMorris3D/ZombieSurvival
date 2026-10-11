@@ -7,7 +7,6 @@ public sealed class WeaponController : MonoBehaviour
     [Header("CONFIGURATION")]
     [SerializeField] WeaponData weaponData;
     [SerializeField] IntegerVariable roundTimer;
-    [SerializeField] bool useLegacyInput = true;
 
     [Header("SHOOTING")]
     [Tooltip("Uses this transform for ray origin and direction. Falls back to this GameObject's transform.")]
@@ -44,11 +43,6 @@ public sealed class WeaponController : MonoBehaviour
     {
         UpdateReload();
 
-        if (useLegacyInput)
-        {
-            ReadLegacyInput();
-        }
-
         if (weaponData != null && IsRoundActive && !isReloading)
         {
             bool wantsToFire = weaponData.FireMode == WeaponFireMode.Automatic
@@ -62,21 +56,6 @@ public sealed class WeaponController : MonoBehaviour
         }
 
         triggerPressedThisFrame = false;
-    }
-
-    void ReadLegacyInput()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            TriggerPressed();
-        }
-
-        triggerHeld = Input.GetMouseButton(0);
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            TryReload();
-        }
     }
 
     public void TriggerPressed()
