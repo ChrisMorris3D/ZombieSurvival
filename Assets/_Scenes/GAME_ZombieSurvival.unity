@@ -271,7 +271,7 @@ PrefabInstance:
     - target: {fileID: 3893312888331455654, guid: 49570ec363ec2274b8ce3f647d7aee45,
         type: 3}
       propertyPath: m_Name
-      value: ThirdPersonRifle
+      value: Weapon_AssaultRifle
       objectReference: {fileID: 0}
     - target: {fileID: 6659030150692098403, guid: 49570ec363ec2274b8ce3f647d7aee45,
         type: 3}
