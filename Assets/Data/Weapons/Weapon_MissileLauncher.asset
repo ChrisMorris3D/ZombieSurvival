@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18a907795f04f829585807969161c01, type: 3}
+  m_Name: Weapon_MissileLauncher
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  displayName: Missile Launcher
+  fireMode: 0
+  damage: 30
+  shotsPerSecond: 0.5
+  range: 150
+  pelletsPerShot: 1
+  spreadAngle: 0.25
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  magazineSize: 1
+  ammunitionPerShot: 1
+  reloadDuration: 4
+  autoReloadWhenEmpty: 1
